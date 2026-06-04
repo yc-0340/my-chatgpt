@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的專屬 ChatGPT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="settings-panel">
+            <h2>⚙️ 參數設定</h2>
+            
+            <div class="setting-group">
+                <label for="model-select">挑選 LLM 模型：</label>
+                <select id="model-select">
+                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                    <option value="gpt-4o">GPT-4o</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label for="system-prompt">System Prompt：</label>
+                <textarea id="system-prompt" rows="4">你是一個樂於助人的 AI 助理，請用繁體中文簡明扼要地回答問題。</textarea>
+            </div>
+
+            <div class="setting-group">
+                <label for="temperature">Temperature (<span id="temp-value">0.7</span>)：</label>
+                <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7" oninput="document.getElementById('temp-value').innerText=this.value">
+            </div>
+
+            <div class="setting-group">
+                <label for="max-tokens">Max Tokens：</label>
+                <input type="number" id="max-tokens" value="1000" min="100" max="4000">
+            </div>
+        </aside>
+
+        <main class="chat-panel">
+            <div id="chat-history" class="chat-history">
+                <div class="message system-msg">歡迎使用！請在下方輸入你的問題。</div>
+            </div>
+            
+            <div class="input-area">
+                <textarea id="user-input" placeholder="輸入你的訊息 (按 Shift + Enter 換行)..." rows="3"></textarea>
+                <button id="send-btn">送出</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
