@@ -41,8 +41,15 @@
             </div>
             
             <div class="input-area">
-                <textarea id="user-input" placeholder="輸入你的訊息 (按 Shift + Enter 換行)..." rows="3"></textarea>
-                <button id="send-btn">送出</button>
+                <input type="file" id="img-upload" accept="image/*" style="display: none;">
+                <label for="img-upload" id="upload-btn" style="cursor:pointer; font-size: 1.5rem; padding: 5px; align-self: center;">📎</label>
+                
+                <div style="display: flex; flex-direction: column; flex-grow: 1;">
+                    <img id="img-preview" src="" style="display:none; max-height: 80px; max-width: 80px; object-fit: cover; border-radius: 8px; margin-bottom: 5px;">
+                    <textarea id="user-input" placeholder="輸入你的訊息 (按 Shift + Enter 換行)..." rows="3"></textarea>
+                </div>
+                
+                <button id="send-btn" style="align-self: flex-end;">送出</button>
             </div>
         </main>
     </div>
